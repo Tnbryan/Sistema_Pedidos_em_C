@@ -17,7 +17,7 @@ void excluirProduto() {
     printf("Excluir produto\n");
 }
 
-//Código teste  Caso dê algum problema pode falar comigo. 
+//Código teste  Caso dê algum problema pode falar comigo C. 
 
 
 #include <stdio.h>
