@@ -4,19 +4,19 @@
 // quando for fazer , pode apagar e alterar
 
 
-void cadastrarProduto() {
-    printf("Cadastrar produto\n");
-}
-void listarProdutos() {
-    printf("Listar produtos\n");
-}
-void alterarProduto() {
-    printf("Alterar produto\n");
-}
-void excluirProduto() {
-    printf("Excluir produto\n");
-}
-
+//void cadastrarProduto() {
+   //printf("Cadastrar produto\n");
+//}
+//void listarProdutos() {
+    //printf("Listar produtos\n");
+//}
+//void alterarProduto() {
+  //  printf("Alterar produto\n");
+//}
+//void excluirProduto() {
+  //  printf("Excluir produto\n");
+//}
+//-----------------------------------------------------------------------------------------------------------------\\
 //Código teste  Caso dê algum problema pode falar comigo C. 
 
 
