@@ -186,6 +186,10 @@ void excluirProduto() {
         printf("Produto excluido com sucesso!\n");
     else
         printf("Produto nao encontrado!\n");
+
+    printf("\nPressione ENTER para continuar...");
+    getchar();
+    getchar();
 }
 
 

@@ -4,12 +4,11 @@
 
 // Esse é o struct base que vamos utilizar em todo o projeto. 
 typedef struct {
-    int numero;
-    int codigoProduto;
+    int id;
+    char cliente[50];
     int quantidade;
-    float valorTotal;
+    float preco;
 } Pedido;
-
 
 // Funções void
 void criarPedido();
