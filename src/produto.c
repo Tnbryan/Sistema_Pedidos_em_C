@@ -30,7 +30,7 @@ void cadastrarProduto() {
     char nome[50];
     float preco;
 
-    arquivo = fopen("data/produtos.txt", "a");
+    arquivo = fopen("../data/produtos.txt", "a");
 
     if (arquivo == NULL) {
         printf("Erro ao abrir arquivo!\n");
@@ -57,10 +57,10 @@ void cadastrarProduto() {
 
 void listarProdutos() {
 
-    FILE *arquivo;
+   FILE *arquivo;
     char linha[100];
 
-    arquivo = fopen("data/produtos.txt", "r");
+    arquivo = fopen("../data/produtos.txt", "r");
 
     if (arquivo == NULL) {
         printf("Nenhum produto cadastrado!\n");
@@ -74,6 +74,10 @@ void listarProdutos() {
     }
 
     fclose(arquivo);
+
+    printf("\nPressione ENTER para voltar...");
+    getchar();
+    getchar();
 }
 
 void alterarProduto() {
@@ -90,8 +94,8 @@ void alterarProduto() {
     printf("Digite o ID do produto que deseja alterar: ");
     scanf("%d", &idBusca);
 
-    arquivo = fopen("data/produtos.txt", "r");
-    temp = fopen("data/temp.txt", "w");
+    arquivo = fopen("../data/produtos.txt", "r");
+    temp = fopen("../data/temp.txt", "w");
 
     if (arquivo == NULL) {
         printf("Arquivo nao encontrado!\n");
@@ -124,8 +128,8 @@ void alterarProduto() {
     fclose(arquivo);
     fclose(temp);
 
-    remove("data/produtos.txt");
-    rename("data/temp.txt", "data/produtos.txt");
+    remove("../data/produtos.txt");
+    rename("../data/temp.txt", "../data/produtos.txt");
 
     if (encontrado)
         printf("Produto alterado com sucesso!\n");
@@ -147,8 +151,8 @@ void excluirProduto() {
     printf("Digite o ID do produto que deseja excluir: ");
     scanf("%d", &idBusca);
 
-    arquivo = fopen("data/produtos.txt", "r");
-    temp = fopen("data/temp.txt", "w");
+    arquivo = fopen("../data/produtos.txt", "r");
+    temp = fopen("../data/temp.txt", "w");
 
     if (arquivo == NULL) {
         printf("Arquivo nao encontrado!\n");
@@ -175,8 +179,8 @@ void excluirProduto() {
     fclose(arquivo);
     fclose(temp);
 
-    remove("data/produtos.txt");
-    rename("data/temp.txt", "data/produtos.txt");
+    remove("../data/produtos.txt");
+    rename("../data/temp.txt", "../data/produtos.txt");
 
     if (encontrado)
         printf("Produto excluido com sucesso!\n");
