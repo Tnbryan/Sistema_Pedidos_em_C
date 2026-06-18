@@ -21,21 +21,14 @@
 
 
 #include <stdio.h>
-#include <stdlib.h>
 
 void cadastrarProduto() {
 
     FILE *arquivo;
     int id;
     char nome[50];
-    float preco;
 
-    arquivo = fopen("../data/produtos.txt", "a");
-
-    if (arquivo == NULL) {
-        printf("Erro ao abrir arquivo!\n");
-        return;
-    }
+    arquivo = fopen("produtos.txt", "a");
 
     printf("\n=== CADASTRAR PRODUTO ===\n");
 
@@ -45,151 +38,27 @@ void cadastrarProduto() {
     printf("Nome: ");
     scanf(" %[^\n]", nome);
 
-    printf("Preco: ");
-    scanf("%f", &preco);
-
-    fprintf(arquivo, "%d;%s;%.2f\n", id, nome, preco);
+    fprintf(arquivo, "%d;%s\n", id, nome);
 
     fclose(arquivo);
 
-    printf("Produto cadastrado com sucesso!\n");
+    printf("Produto cadastrado!\n");
 }
 
 void listarProdutos() {
 
-   FILE *arquivo;
+    FILE *arquivo;
     char linha[100];
 
-    arquivo = fopen("../data/produtos.txt", "r");
-
-    if (arquivo == NULL) {
-        printf("Nenhum produto cadastrado!\n");
-        return;
-    }
+    arquivo = fopen("produtos.txt", "r");
 
     printf("\n=== LISTA DE PRODUTOS ===\n");
 
-    while (fgets(linha, sizeof(linha), arquivo) != NULL) {
+    while (fgets(linha, 100, arquivo)) {
         printf("%s", linha);
     }
 
     fclose(arquivo);
-
-    printf("\nPressione ENTER para voltar...");
-    getchar();
-    getchar();
-}
-
-void alterarProduto() {
-
-    FILE *arquivo;
-    FILE *temp;
-
-    int idBusca;
-    int id;
-    char nome[50];
-    float preco;
-    int encontrado = 0;
-
-    printf("Digite o ID do produto que deseja alterar: ");
-    scanf("%d", &idBusca);
-
-    arquivo = fopen("../data/produtos.txt", "r");
-    temp = fopen("../data/temp.txt", "w");
-
-    if (arquivo == NULL) {
-        printf("Arquivo nao encontrado!\n");
-        return;
-    }
-
-    while (fscanf(arquivo, "%d;%49[^;];%f\n",
-                  &id,
-                  nome,
-                  &preco) == 3) {
-
-        if (id == idBusca) {
-
-            encontrado = 1;
-
-            printf("Novo nome: ");
-            scanf(" %[^\n]", nome);
-
-            printf("Novo preco: ");
-            scanf("%f", &preco);
-        }
-
-        fprintf(temp,
-                "%d;%s;%.2f\n",
-                id,
-                nome,
-                preco);
-    }
-
-    fclose(arquivo);
-    fclose(temp);
-
-    remove("../data/produtos.txt");
-    rename("../data/temp.txt", "../data/produtos.txt");
-
-    if (encontrado)
-        printf("Produto alterado com sucesso!\n");
-    else
-        printf("Produto nao encontrado!\n");
-}
-
-void excluirProduto() {
-
-    FILE *arquivo;
-    FILE *temp;
-
-    int idBusca;
-    int id;
-    char nome[50];
-    float preco;
-    int encontrado = 0;
-
-    printf("Digite o ID do produto que deseja excluir: ");
-    scanf("%d", &idBusca);
-
-    arquivo = fopen("../data/produtos.txt", "r");
-    temp = fopen("../data/temp.txt", "w");
-
-    if (arquivo == NULL) {
-        printf("Arquivo nao encontrado!\n");
-        return;
-    }
-
-    while (fscanf(arquivo, "%d;%49[^;];%f\n",
-                  &id,
-                  nome,
-                  &preco) == 3) {
-
-        if (id == idBusca) {
-            encontrado = 1;
-            continue;
-        }
-
-        fprintf(temp,
-                "%d;%s;%.2f\n",
-                id,
-                nome,
-                preco);
-    }
-
-    fclose(arquivo);
-    fclose(temp);
-
-    remove("../data/produtos.txt");
-    rename("../data/temp.txt", "../data/produtos.txt");
-
-    if (encontrado)
-        printf("Produto excluido com sucesso!\n");
-    else
-        printf("Produto nao encontrado!\n");
-
-    printf("\nPressione ENTER para continuar...");
-    getchar();
-    getchar();
 }
 
 
