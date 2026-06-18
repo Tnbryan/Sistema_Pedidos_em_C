@@ -22,7 +22,7 @@
 
 #include <stdio.h>
 
-// Cadastrar Produto
+// função para cadastrar  Produto
 void cadastrarProduto() {
 
     FILE *arquivo;
@@ -46,7 +46,7 @@ void cadastrarProduto() {
     printf("Produto cadastrado com sucesso!\n");
 }
 
-// Listar Produtos
+// função de Listar Produtos
 void listarProdutos() {
 
     FILE *arquivo;
@@ -63,7 +63,7 @@ void listarProdutos() {
     fclose(arquivo);
 }
 
-// Alterar Produto
+// fazer Alteração de acordo com o Produto
 void alterarProduto() {
 
     FILE *arquivo;
@@ -104,7 +104,7 @@ void alterarProduto() {
     printf("Produto alterado com sucesso!\n");
 }
 
-// Excluir Produto
+// Apaga qualquer  Produto indesejado ou que foi adicionado errado
 void excluirProduto() {
 
     FILE *arquivo;
